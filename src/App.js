@@ -2,8 +2,8 @@ import React from "react";
 import Navigation from "./components/Navbar";
 import { AuthProvider } from "./components/AuthProvider";
 
-import { Home } from "./pages/Home";
-import { Signup } from "./pages/Signup";
+import { Home } from "./pages/Home"
+import SignUpForm from "./pages/Signup"
 import Login from "./pages/Login";
 
 import "./App.css";
@@ -16,7 +16,7 @@ function App() {
         <Navigation />
         <Routes>
           <Route path="/" element={<Home />} /> 
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/signup" element={<SignUpForm />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </div>

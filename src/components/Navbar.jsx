@@ -4,6 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import React from "react";
 import { AuthContext } from "./AuthProvider";
 
+
 function Navigation() {
   const { token, onLogout } = React.useContext(AuthContext);
   return (
@@ -21,7 +22,7 @@ function Navigation() {
                 Sign Out
               </button>
             )}
-             
+
           </Nav>
         </Navbar.Collapse>
       </Container>
