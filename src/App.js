@@ -14,11 +14,11 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   const [events, setEvents] = useState([]);
 
-  const calenderID = process.env.REACT_APP_CALENDER_ID;
+  const calendarID = process.env.REACT_APP_CALENDER_ID;
   const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
   const accessToken = process.env.REACT_APP_GOOGLE_ACCESS_TOKEN; 
 
-  const getEvents = (calenderID, apiKey) =>{
+  const getEvents = (calendarID, apiKey) =>{
     function initiate() {
       gapi.client 
       .init({
@@ -26,7 +26,7 @@ function App() {
       })
       .then(function (){
         return gapi.client.request({
-          path: 'https://www.googleapis.com/calendar/v3/calendars/${calendarID}/events'
+          path: `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/events`
         });
       })
       .then ((response) => {
@@ -42,9 +42,34 @@ function App() {
 
   };
   useEffect(() => {
-    const events = getEvents(calenderID, apiKey);
+    const events = getEvents(calendarID, apiKey);
     setEvents(events);
   }, []);
+
+  const addEvent = (calendarID, event) => {
+    function initiate() {
+      gapi.client
+      .request({
+        path: `https://www.googleapis.com/calendar/v3/calendars/${calendarID}/events`,
+        method: 'POST',
+        body: event,
+        headers: {
+          "Content-Type": "application/json", 
+          Authorization: `Bearer ${accessToken}`,
+        }, 
+      })
+      .then(
+        (response) => {
+          return [true, response];
+        },
+        function (err) {
+          console.log(err);
+          return [false, err]; 
+        }
+      );
+    }
+    gapi.load("client", initiate);
+  }
 
   return (
     <AuthProvider>
