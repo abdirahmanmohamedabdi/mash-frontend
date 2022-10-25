@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { gapi} from "gapi-script";
 import Navigation from "./components/Navbar";
 import { AuthProvider } from "./components/AuthProvider";
-
+import Location from "./pages/Location";
 import { Home } from "./pages/Home"
 import SignUpForm from "./pages/Signup"
 import Login from "./pages/Login";
@@ -78,6 +78,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} /> 
           <Route path="/signup" element={<SignUpForm />} />
+          <Route path="/location" element={<Location />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </div>
