@@ -1,5 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .App {
+  background: #0e1217;
+  font-family: "Roboto", sans-serif;
+  min-height: 100vh;
   text-align: center;
+  color: white;
 }
 
 .App-logo {
@@ -42,3 +50,15 @@
   height: 258.579px; transform: translate(0px, 127.413px);
 }
 
+
+
+ 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.color-purple {
+  color: #ce3df3;
+}
