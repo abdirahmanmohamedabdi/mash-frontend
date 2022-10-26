@@ -73,6 +73,24 @@ export const getSignedInUserEmail = async () => {
       console.log(error)
   }
 }
+
+export const publishTheCalenderEvent = (event) => {
+  try {
+      gapi.client.load('calendar', 'v3', () => {
+          var request = gapi.client.calendar.events.insert({
+              'calendarId': 'primary',
+              'resource': event
+          });
+      
+          request.execute(function(event) {
+              console.log('Event created: ' + event.htmlLink);
+          });
+      })
+        
+  } catch (error) {
+      console.log(error)
+  }
+}
   return (
     <div class="mt-4 w-1/4 p-1 shadow-xl bg-gradient-to-r from-blue-500 via-navy-500 to-purple-500 rounded-2xl">
       <span class="block bg-white sm:p-2 rounded-xl" href="">
