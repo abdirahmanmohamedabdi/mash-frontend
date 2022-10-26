@@ -58,6 +58,21 @@ import React from "react";
         console.log(error)
     }
 }
+
+export const getSignedInUserEmail = async () => {
+  try {
+      let status = await checkSignInStatus();
+      if (status){
+          var auth2 = gapi.auth2.getAuthInstance();
+          var profile = auth2.currentUser.get().getBasicProfile();
+          return profile.getEmail()
+      } else {
+          return null;
+      }
+  } catch (error) {
+      console.log(error)
+  }
+}
   return (
     <div class="mt-4 w-1/4 p-1 shadow-xl bg-gradient-to-r from-blue-500 via-navy-500 to-purple-500 rounded-2xl">
       <span class="block bg-white sm:p-2 rounded-xl" href="">
