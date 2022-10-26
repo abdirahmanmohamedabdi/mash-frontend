@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 .App {
   background: #0e1217;
   font-family: "Roboto", sans-serif;
@@ -61,4 +57,27 @@
 
 .color-purple {
   color: #ce3df3;
+}
+
+.calenderEvent-wrapper{
+  width: 500px;
+  height: 370px;
+  background-color: white;
+  border: 1px solid rgb(202, 199, 199);
+  border-radius: 7px;
+  box-shadow: 4px 4px 4px grey;
+  display: flex;
+  flex-direction: column;
+}
+
+.header{
+  height: 50px;
+  width: 100%;
+  color: white;
+  background-color: #0388D1;
+  border-radius: 7px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
