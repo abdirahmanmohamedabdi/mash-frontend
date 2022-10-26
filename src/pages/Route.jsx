@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react'
 function Route() {
 
   const [route, setRoute] = useState([])
+  const [deleteroute, setDelete] = useState([])
 
   async function fetchingroutes(){
     await fetch("http://127.0.0.1:3000/route_plans")
@@ -15,6 +16,14 @@ function Route() {
    
   }, []);
   console.log(route)
+
+  const handleDelete=(id) => {
+    fetch(`http://127.0.0.1:3000/route_plans/${id}`, {
+      method: "DELETE",
+    })
+      .then((r) => r.json())
+      .then((deleteroute) => setDelete(deleteroute));
+    }
 
   let container = route.map((item) => (
     <div className='contains'>
