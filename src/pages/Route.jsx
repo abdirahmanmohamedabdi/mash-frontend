@@ -49,7 +49,9 @@ function Route() {
       <h4>{item.month}</h4>
       </div>
      <div className='left'>
-      <button onClick={handleDelete}>remove Route</button>
+      <button style={
+          styles.button
+        } onClick={handleDelete}>remove Route</button>
      </div>
       
     </div>
@@ -57,23 +59,28 @@ function Route() {
 ))
 
   return (
+    <div style={
+      styles.all
+    }>
     <div>
     {container}
+    </div>
+   
     <div style={
       styles.container
     } >
 
-<form style={
+     <form style={
           styles.form
         }
         onSubmit={handleSubmit}>
-        <h2>Add Route</h2>
-        name:<textarea/>
+        <h1>Create Route Plans</h1>
+        name:
         <textarea style={
           styles.textarea
         }/>
 
-        month:<textarea/>
+        month:
         <textarea style={
           styles.textarea
         }/>
@@ -94,6 +101,13 @@ function Route() {
 
 
 const styles = {
+  all: {
+    display: "flex",
+    flexDirection: "row",
+    margin: "100px",
+    padding: "50px",
+    justifycontent: "space between"
+  },
   container: {
     display: "flex",
     flexDirection: "column",
@@ -108,9 +122,9 @@ const styles = {
     border: "1px solid #a9a9a9",
     borderRadius: 5,
     padding: 10,
-    margin: "20px 0",
-    minHeight: 100,
-    width: 300
+    margin: "10px 0",
+    minHeight: 50,
+    width: 500
   },
   button: {
     border: "1px solid #a9a9a9",
