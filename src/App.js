@@ -6,7 +6,7 @@ import Location from "./pages/Location";
 import { Home } from "./pages/Home"
 import SignUpForm from "./pages/Signup"
 import Login from "./pages/Login";
-import Event from "./components/Event";
+import Google from "./components/Google";
 
 import "./App.css";
 import { Routes, Route,Navigate } from "react-router-dom";
@@ -83,6 +83,7 @@ function App() {
           <Route path="/manager" element={<Manager />}> </Route>
           <Route path="/login" element={<Login />} />
         </Routes>
+        <Google />
       </div>
       {/* <div className = "App py-8 flex-col justify-center">
       <h1 className="text-2xl font-bold mb-4">
