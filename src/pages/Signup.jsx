@@ -6,6 +6,8 @@ import Form from "react-bootstrap/Form";
 
 
 function SignUpForm({onLogin}) {
+ 
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password_confirmation, setPasswordConfirmation] = useState("");
@@ -18,7 +20,8 @@ function SignUpForm({onLogin}) {
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
-    fetch('/api/signup', {
+    fetch("http://127.0.0.1:3000/signup", {
+      mode: 'no-cors',
       method: 'POST',
       headers: {
         "Content-Type": "application/json",
@@ -28,17 +31,17 @@ function SignUpForm({onLogin}) {
         email, 
         password,
         password_confirmation,
+        
       }),
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((user)=> onLogin(user));
-        navigate("/")
+        r.json().then((user) => onLogin(user));
       } else {
-        r.json().then((err)=> onLogin(err.errors));
+        r.json().then((err) => setErrors(err.errors));
       }
     });
-  }
+    }  
 
   return (
     <div className="Auth-form-container">
@@ -50,6 +53,7 @@ function SignUpForm({onLogin}) {
               <option>Select Your role</option>
               <option value="1">Managers</option>
               <option value="2">Merchandisers</option>
+              
             </Form.Select>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -89,7 +93,7 @@ function SignUpForm({onLogin}) {
             />
             </Form.Group>
 
-            <Button variant="dark" type="submit">
+            <Button  type="submit" onClick={handleSubmit}>
               Sign Up
             </Button>
           </Form>
