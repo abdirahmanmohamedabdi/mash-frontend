@@ -1,51 +1,69 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row} from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 
 
-function SignUpForm({onLogin}) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [password_confirmation, setPasswordConfirmation] = useState("");
-  const [errors, setErrors] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+function Signup() {
+  const navigate = useNavigate()
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [password_confirmation, setPasswordConfirmation] = useState("")
 
-  const navigate = useNavigate();
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    setErrors([]);
-    setIsLoading(true);
-    fetch('/api/signup', {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        
-        email, 
-        password,
-        password_confirmation,
-      }),
-    }).then((r) => {
-      setIsLoading(false);
-      if (r.ok) {
-        r.json().then((user)=> onLogin(user));
-        navigate("/")
-      } else {
-        r.json().then((err)=> onLogin(err.errors));
-      }
-    });
+ const checkValidInputs = (email, password, password_confirmation) => {
+  //ensure no empty values submited to the db
+  if (email !== "" && password !== "" && password_confirmation !== ""){
+    console.log("All inputs available")
+    return true;
+  }
+}
+
+
+
+ function handleSubmit(e) {
+   e.preventDefault();
+
+   const Signup = {
+    email: email,
+    password: password,
+    password_confirmation: password_confirmation
+   
   }
 
+  const isValid = checkValidInputs(email, password, password_confirmation);
+
+  if (!isValid) {
+  console.log("Signup");
+  return;
+  }
+
+  
+   fetch("http://127.0.0.1:3000/signup", {
+     method: "POST",
+     headers: {
+       "Content-Type": "application/json",
+     },
+     body: JSON.stringify(Signup)
+   })
+   .then((res) => {console.log(res.data);
+     navigate("/login")
+   })
+   .catch((error) => {
+     console.error("Error:", error);
+   });
+
+   setEmail("")
+   setPassword("")
+   setPasswordConfirmation("")
+ }
   return (
     <div className="Auth-form-container">
       <Container>
         <Row>
           <h2>Sign Up</h2>
-          <Form className="Auth-form">
+          <Form className="Auth-form" onClick={handleSubmit}>
             <Form.Select>
               <option>Select Your role</option>
               <option value="1">Managers</option>
@@ -61,8 +79,8 @@ function SignUpForm({onLogin}) {
               className="form-control mt-1"
               placeholder="example@gmail.com"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+              onChange={(e) => setEmail(e.target.value)} />
+            
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -73,7 +91,7 @@ function SignUpForm({onLogin}) {
               className="form-control mt-1"
               placeholder="Password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)} 
             />
               
             </Form.Group>
@@ -85,7 +103,7 @@ function SignUpForm({onLogin}) {
               className="form-control mt-1"
               placeholder="Confirm Password"
               value={password_confirmation}
-              onChange={(e) => setPasswordConfirmation(e.target.value)}
+              onChange={(e) => setPasswordConfirmation(e.target.value)} 
             />
             </Form.Group>
 
@@ -99,4 +117,4 @@ function SignUpForm({onLogin}) {
   );
 }
 
-export default SignUpForm;
+export default Signup;
