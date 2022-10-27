@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useContext } from "react";
 import { gapi} from "gapi-script";
 import Navigation from "./components/Navbar";
 import { AuthProvider } from "./components/AuthProvider";
@@ -9,11 +9,12 @@ import Login from "./pages/Login";
 import Event from "./components/Event";
 
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route,Navigate } from "react-router-dom";
+import Manager from "./pages/Manager";
+
 
 function App() {
   const [events, setEvents] = useState([]);
-
   // const calendarID = process.env.REACT_APP_CALENDER_ID;
   // const apiKey = process.env.REACT_APP_GOOGLE_API_KEY;
   // const accessToken = process.env.REACT_APP_GOOGLE_ACCESS_TOKEN; 
@@ -78,7 +79,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} /> 
           <Route path="/signup" element={<SignUpForm />} />
-          <Route path="/location" element={<Location />} />
+          <Route path="/location" element={<Location />}> </Route>
+          <Route path="/manager" element={<Manager />}> </Route>
           <Route path="/login" element={<Login />} />
         </Routes>
       </div>
