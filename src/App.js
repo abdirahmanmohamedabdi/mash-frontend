@@ -7,6 +7,7 @@ import { Home } from "./pages/Home"
 import SignUpForm from "./pages/Signup"
 import Login from "./pages/Login";
 import Event from "./components/Event";
+// import Merchandiser from "./pages/Merchandiser";
 
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
@@ -94,7 +95,10 @@ function App() {
         </ul>
       </h1>
       </div>
+    {/* <Merchandiser/> */}
     </AuthProvider>
+
+   
   );
 }
 
