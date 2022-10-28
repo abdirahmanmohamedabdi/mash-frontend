@@ -1,9 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 .App {
-  background: #0e1217;
+  
   font-family: "Roboto", sans-serif;
   min-height: 100vh;
   text-align: center;
@@ -53,12 +49,12 @@
 
 
  
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+
+.h2{
+  background-color: black;
 }
 
-.color-purple {
-  color: #ce3df3;
+.btn.btn-primary{
+  background-color: #61dafb;
 }

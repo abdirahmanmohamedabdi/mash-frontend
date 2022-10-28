@@ -5,18 +5,19 @@ export const AuthContext = React.createContext(null);
 
 export const AuthProvider = ({ children }) => {
     const [token, setToken] = React.useState(null);
-    const [userType,setUserType] = React.useState(null)
+    const [role,setRole] = React.useState("guest")
   
-    const handleLogin = async () => {
-      const token = 'blahhhhhhh'
+    const handleLogin = (token,role) => {
       setToken(token);
+      setRole(role)
     };
   
     const handleLogout = () => {
       setToken(null);
     };
-  
+
     const value = {
+      role,
       token,
       onLogin: handleLogin,
       onLogout: handleLogout,
