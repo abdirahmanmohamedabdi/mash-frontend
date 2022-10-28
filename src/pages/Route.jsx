@@ -2,58 +2,60 @@ import React, {useEffect, useState} from 'react'
 
 function Route() {
 
-  const [route, setRoute] = useState([])
-  const [deleteroute, setDelete] = useState([])
-  const [addroute, setAddroute] = useState("")
+  const [name, setName] = useState("");
+  const [month, setMonth] = useState("");
+  const [route, setRoute] = useState([]);
 
   async function fetchingroutes(){
-    await fetch("http://127.0.0.1:3000/route_plans")
+   await fetch("http://127.0.0.1:3000/route_plans")
     .then((resp) => resp.json())
     .then((route) => setRoute(route));
   }
 
   useEffect(() => {
     fetchingroutes()
-   
   }, []);
-  console.log(route)
+
 
   const handleDelete=(id) => {
     fetch(`http://127.0.0.1:3000/route_plans/${id}`, {
       method: "DELETE",
     })
-      .then((r) => r.json())
-      .then((deleteroute) => setDelete(deleteroute));
     }
 
 
-    function handleSubmit(e) {
+
+  function handleSubmit(e) {
       e.preventDefault();
+
+      const Route = {
+        name: name,
+        month: month
+  }
+
+
       fetch("http://127.0.0.1:3000/route_plans", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({addroute})
-      }).then((r) => {
-        if (r.ok) {
-          r.json().then((addroute) => setAddroute(addroute));
-        }
-      });
+        body: JSON.stringify({Route})
+      })
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.log(err))
+      
+      setName("");
+      setMonth("");
     }
 
   let container = route.map((item) => (
-    <div className='contains'>
-      <div className='right'>
-      <h3>route name:{item.name}</h3>
+    <div className='contains' key = {route.id}>
+      <h1 ></h1>
+      <h3>{item.name}</h3>
       <h4>{item.month}</h4>
-      </div>
-     <div className='left'>
-      <button style={
-          styles.button
-        } onClick={handleDelete}>remove Route</button>
-     </div>
-      
+      <button style={styles.button } onClick={handleDelete(route.id)}>remove Route</button>
+     
     </div>
 
 ))
@@ -70,26 +72,28 @@ function Route() {
       styles.container
     } >
 
-     <form style={
-          styles.form
-        }
-        onSubmit={handleSubmit}>
+     <form style={styles.form} onSubmit={handleSubmit} >
         <h1>Create Route Plans</h1>
-        name:
-        <textarea style={
-          styles.textarea
-        }/>
+            <label>Name</label>
+            <input style={styles.input }
+                 type="text" 
+                placeholder="Route name" 
+                value={name}
+                 onChange={(e) => setName(e.target.value)} 
 
-        month:
-        <textarea style={
-          styles.textarea
-        }/>
+             />
 
-        <button style={
-          styles.button
-        }>
-          Send Route Plan
-        </button>
+            <label>Month</label>
+            <input style={styles.input }
+                type="text" 
+                placeholder="Month" 
+                value={month}
+                 onChange={(e) => setMonth(e.target.value)} 
+
+             />
+
+
+        <button style={styles.button }> Send Route Plan </button>
       </form>
 
     
@@ -105,20 +109,22 @@ const styles = {
     display: "flex",
     flexDirection: "row",
     margin: "100px",
-    padding: "50px",
-    justifycontent: "space between"
+    padding: "50px ",
+    justifycontent: "space between",
+    color: "black"
   },
   container: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "center"
+    alignItems: "center",
+    margin: "0 300px "
   },
   form: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center"
   },
-  textarea: {
+  input: {
     border: "1px solid #a9a9a9",
     borderRadius: 5,
     padding: 10,
