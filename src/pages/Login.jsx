@@ -77,7 +77,7 @@ function Login() {
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
-
+             
               <input
                 type="email"
                 id="email"
@@ -90,14 +90,15 @@ function Login() {
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
-
+              
               <input
-                type="password"
-                className="form-control mt-1"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
+              type="password"
+              className="form-control mt-1"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)} 
+            />
+              
             </Form.Group>
 
             <Button variant="dark" type="submit">
