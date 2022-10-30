@@ -4,6 +4,7 @@ import Navigation from "./components/Navbar";
 import { AuthProvider } from "./components/AuthProvider";
 import Location from "./pages/Location";
 import { Home } from "./pages/Home"
+import MerchandisersContainer from "./components/MerchandisersContainer";
 import SignUpForm from "./pages/Signup"
 import Login from "./pages/Login";
 import Google from "./components/Google";
@@ -79,11 +80,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} /> 
           <Route path="/signup" element={<SignUpForm />} />
+          <Route path="/merchandisers" element={<MerchandisersContainer />} />
           <Route path="/location" element={<Location />}> </Route>
           <Route path="/manager" element={<Manager />}> </Route>
           <Route path="/login" element={<Login />} />
         </Routes>
-        <Google />
+        {/* <Google /> */}
       </div>
       {/* <div className = "App py-8 flex-col justify-center">
       <h1 className="text-2xl font-bold mb-4">
