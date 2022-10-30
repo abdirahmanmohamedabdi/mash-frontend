@@ -3,11 +3,11 @@ import React, {useEffect, useState} from 'react'
 function Route() {
 
   const [name, setName] = useState("");
-  const [month, setMonth] = useState("");
+  const [location, setlocation] = useState("");
   const [route, setRoute] = useState([]);
 
   async function fetchingroutes(){
-   await fetch("http://127.0.0.1:3000/route_plans")
+   await fetch("http://127.0.0.1:3000/outlets")
     .then((resp) => resp.json())
     .then((route) => setRoute(route));
   }
@@ -17,9 +17,9 @@ function Route() {
   }, []);
 
 
-  const handleDelete=(id) => {
-    fetch(`http://127.0.0.1:3000/route_plans/${id}`, {
-      method: "DELETE",
+  function handleDelete(id) {
+    fetch(`http://localhost:3000/route_plans/${id}`,{
+      method: "DELETE"
     })
     }
 
@@ -30,7 +30,7 @@ function Route() {
 
       const Route = {
         name: name,
-        month: month
+        location: location
   }
 
 
@@ -46,15 +46,15 @@ function Route() {
       .catch(err => console.log(err))
       
       setName("");
-      setMonth("");
+      setlocation("");
     }
 
   let container = route.map((item) => (
-    <div className='contains' key = {route.id}>
-      <h1 ></h1>
+    <div className='contains' key = {item.id}>
+      <h1 >{item.id}</h1>
       <h3>{item.name}</h3>
-      <h4>{item.month}</h4>
-      <button style={styles.button } onClick={handleDelete(route.id)}>remove Route</button>
+      <h4>{item.location}</h4>
+      <button style={styles.button } onClick={handleDelete(item.id)}>remove Route</button>
      
     </div>
 
@@ -83,12 +83,12 @@ function Route() {
 
              />
 
-            <label>Month</label>
+            <label>location</label>
             <input style={styles.input }
                 type="text" 
-                placeholder="Month" 
-                value={month}
-                 onChange={(e) => setMonth(e.target.value)} 
+                placeholder="location" 
+                value={location}
+                 onChange={(e) => setlocation(e.target.value)} 
 
              />
 
