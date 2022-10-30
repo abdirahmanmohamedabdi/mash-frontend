@@ -4,7 +4,7 @@ import Navigation from "./components/Navbar";
 import { AuthProvider } from "./components/AuthProvider";
 import Location from "./pages/Location";
 import { Home } from "./pages/Home"
-import MerchandisersContainer from "./components/MerchandisersContainer";
+import MerchandiserCard from "./components/MerchandiserCard";
 import SignUpForm from "./pages/Signup"
 import Login from "./pages/Login";
 import Google from "./components/Google";
@@ -12,7 +12,9 @@ import Google from "./components/Google";
 import "./App.css";
 import { Routes, Route,Navigate } from "react-router-dom";
 import Manager from "./pages/Manager";
+import Signup from "./pages/Signup";
 
+import MerchandisersContainer from "./components/MerchandisersContainer";
 
 function App() {
   const [events, setEvents] = useState([]);
@@ -80,7 +82,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} /> 
           <Route path="/signup" element={<SignUpForm />} />
-          <Route path="/merchandisers" element={<MerchandisersContainer />} />
+          <Route path="//managers/merchandisers" element={<MerchandisersContainer />} />
           <Route path="/location" element={<Location />}> </Route>
           <Route path="/manager" element={<Manager />}> </Route>
           <Route path="/login" element={<Login />} />
