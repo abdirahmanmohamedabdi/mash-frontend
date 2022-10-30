@@ -24,14 +24,14 @@ const Sidebar = () => {
           <CDBSidebarMenu>
           
             
-          <NavLink exact={true} path="/merchandisers" component={MerchandisersContainer}>
+          <NavLink  exact to="/managers/merchandisers" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="fa fa-users">Merchandisers</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact={true} path="/merchandisers" activeClassName="activeClicked">
+            <NavLink exact={true} path="/managers/locations" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="fa fa-map-marker">Locations</CDBSidebarMenuItem>
             </NavLink>
 
-            exact={true} path="/merchandisers" activeClassName="activeClicked">
+            <NavLink exact to="/hero404" target="_blank" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="fa fa-building">Routes</CDBSidebarMenuItem>
             </NavLink>
           </CDBSidebarMenu>
