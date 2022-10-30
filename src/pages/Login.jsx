@@ -1,53 +1,86 @@
-import { useState } from "react";
+import { useState,useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { AuthContext } from "../components/AuthProvider";
 
-function LoginForm({ onLogin }) {
+function Login() {
+  const { onLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [role, setRole] = useState("manager");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [userType,setUserType] = useState('merch')
-  const [errors, setErrors] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate();
-  function handleSubmit(event) {
-    event.preventDefault();
-    setIsLoading(true);
-    // const apiUrl = userType == 'manager' ? '/api/login/manager' : '/api/login/merchandiser'
-    fetch(`/api/login/`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    }).then((r) => {
-      setIsLoading(false);
-      if (r.ok) {
-        r.json().then((user) => onLogin(user));
-        navigate("/");
-      } else {
-        r.json().then((err) => setErrors(err.errors));
-      }
-    });
+
+  const checkValidInputs = (email, password) => {
+    //ensure no empty values submited to the db
+    if (email !== "" || password !== "") {
+      console.log("All inputs available");
+      return true;
+    }
+  };
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const Login = {
+      email: email,
+      password: password,
+    };
+
+    if (checkValidInputs(email, password)) {
+      fetch(`http://127.0.0.1:3000/login-${role}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(Login),
+      })
+      .then((res) => res.json())
+      .then((res) => {
+        if(res.token){
+          alert('Successful Login')
+          onLogin(res.token,res.role)
+          if(res.role === 'merch'){
+            navigate('/location')
+          }else {
+            navigate('/manager')
+          }
+        }
+        else{
+          alert('Access Denied')
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert()
+      });
+      
+  }
+  else {
+    alert('Check form inputs')
+  }
+
   }
   return (
     <div className="Auth-form-container">
       <Container>
         <Row>
           <h2>Login</h2>
-          <Form className="Auth-form">
-            <Form.Select>
-              <option>Select Your role</option>
-              <option value="1">Managers</option>
-              <option value="2">Merchandisers</option>
+          <Form className="Auth-form" onSubmit={handleSubmit}>
+            <Form.Select value={role} onChange={(e) => setRole(e.target.value)}>
+              <option value="manager">
+                Managers
+              </option>
+              <option value="merch">Merchandisers</option>
             </Form.Select>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
-
+             
               <input
                 type="email"
+                id="email"
                 className="form-control mt-1"
                 placeholder="example@gmail.com"
                 value={email}
@@ -57,18 +90,19 @@ function LoginForm({ onLogin }) {
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
-
+              
               <input
-                type="password"
-                className="form-control mt-1"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
+              type="password"
+              className="form-control mt-1"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)} 
+            />
+              
             </Form.Group>
 
             <Button variant="dark" type="submit">
-              {isLoading ? "Loading..." : "Login"}
+              Login
             </Button>
           </Form>
         </Row>
@@ -77,4 +111,4 @@ function LoginForm({ onLogin }) {
   );
 }
 
-export default LoginForm;
+export default Login;

@@ -1,4 +1,5 @@
 import React from 'react'
+import Route from "../pages/Route"
 import { AuthContext } from '../components/AuthProvider';
 import Merchants from '../components/Merchants'
 
@@ -7,6 +8,9 @@ export const Home = () => {
   return (
     <div>Home {token}
     <Merchants />
+
+    <Route />
+    
     </div>
   )
 }
