@@ -1,19 +1,20 @@
-import { FaUserAlt } from "react-icons/fa";
-
-const MerchandiserCard = ({ name, location }) => {
+function Card(props) {
   return (
-    <div className="card bg-primary mb-5 cardTitle">
-      <div className="card-body d-flex">
-        <span style={{ fontSize: "3rem", color: "white", marginRight:"30px" }}>
-          <FaUserAlt />
-        </span>
-        <div className="d-flex flex-column">
-          <h2 style={{color:"#fff"}}>Name: {name}</h2>
-          <h4>Location: {location}</h4>
-        </div>
-      </div>
-    </div>
-  );
-};
+    <section id="sectionCard">
+    <div className="carder">
+    <div className="card" >
+  
+  <ul className="list-group list-group-flush">
+    <li className="list-group-item">Name: {props.merchandiser.full_name}</li>
+    <li className="list-group-item">Liscence Number: {props.engineer.license_number}</li>
+    <li className="list-group-item">Experience: {props.engineer.experience}</li>
+    
+  </ul>
+</div>
 
-export default MerchandiserCard;
+</div>
+</section>
+  );
+}
+
+export default Card;

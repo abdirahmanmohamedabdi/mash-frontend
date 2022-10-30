@@ -1,23 +1,25 @@
 import { useContext } from "react";
 import { Navigate } from "react-router-dom";
 import { AuthContext } from "../components/AuthProvider";
-import { Route,Routes } from "react-router-dom";
-IMPOR
+import { Route, Routes } from "react-router-dom";
+import Location from "./Location";
+import MerchandisersContainer from "../components/MerchandisersContainer";
 import Sidebar from "../components/Sidebar";
 export default function Manager() {
   const { token, role } = useContext(AuthContext);
   if (!token && role !== "manager") {
     return <Navigate to="/" replace />;
   }
-  return( 
-  <Routes>
-  <div>
-<Sidebar/>
-<Route path="profile" element={<TeacherProfile />}>
-        <Route path="info" element={<TeacherInformation />}>
-          </Route>
-          </Route>
-  </div>
-  </Routes>
-
-)}
+  return (
+    <div>
+      <Sidebar />
+      <MerchandisersContainer />
+      <Routes>
+        <Route path="/managers/merchandisers" element={<Location />}>
+          {/* <Route path="info" element={<TeacherInformation />}> */}
+        </Route>
+        {/* </Route> */}
+      </Routes>
+    </div>
+  );
+}

@@ -1,4 +1,5 @@
 import React from 'react'
+import MerchandisersContainer from '../components/MerchandisersContainer';
 import Route from "../pages/Route"
 import { AuthContext } from '../components/AuthProvider';
 
@@ -7,7 +8,7 @@ export const Home = () => {
   const { token } = React.useContext(AuthContext);
   return (
     <div>
-      {token}
+      {/* {token} */}
       <header style={{ paddingLeft: 0 }}>
       <div
         className=''
