@@ -3,6 +3,7 @@
   font-family: "Roboto", sans-serif;
   min-height: 100vh;
   text-align: center;
+  
 }
 
 .App-logo {
@@ -223,4 +224,12 @@
 .react-calendar--selectRange .react-calendar__tile--hover {
   background-color: #e6e6e6;
 }
+
+
+
+
+.random{
+  background-image: url("https://images.unsplash.com/photo-1557064262-6acc904bffbd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"),
+}
+
 
