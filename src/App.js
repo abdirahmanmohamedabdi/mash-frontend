@@ -6,6 +6,7 @@ import { Home } from "./pages/Home"
 import SignUpForm from "./pages/Signup"
 import Login from "./pages/Login";
 import Google from "./components/Google";
+import Routeplan from "./pages/Routeplan";
 import About from "./pages/About";
 import Dashboard from "./pages/Dashboard"
 import Sidebar from "./components/Sidebar"
@@ -28,9 +29,10 @@ function App() {
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/location" element={<Location />}> </Route>
           <Route path="/manager" element={<Manager />}> </Route>
+          <Route path="/Routeplan" element={<Routeplan />}> </Route>
           <Route path="/login" element={<Login />} />
         </Routes>
-        <Google />
+        {/* <Google /> */}
       </div>
     </AuthProvider>
   );

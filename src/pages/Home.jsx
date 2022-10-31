@@ -1,5 +1,4 @@
 import React from 'react'
-import Route from "../pages/Route"
 import { AuthContext } from '../components/AuthProvider';
 
 
@@ -8,8 +7,6 @@ export const Home = () => {
   return (
     <div>Home {token}
 
-    <Route />
-    
     </div>
   )
 }
