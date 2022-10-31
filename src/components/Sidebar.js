@@ -25,13 +25,13 @@ const Sidebar = ({children}) => {
             icon:<FaUserAlt/>
         },
         {
-            path:"/routes",
+            path:"/Routeplan",
             name:"Routes",
             icon:<FaRegChartBar/>
         },
         {
-            path:"/locations",
-            name:"Locations",
+            path:"/location",
+            name:"Location",
             icon:<FaCommentAlt/>
         },
         {
