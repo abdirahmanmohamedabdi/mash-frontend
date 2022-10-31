@@ -9,6 +9,7 @@ import {
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
 import MerchandisersContainer from './MerchandisersContainer';
+import Routed from '../pages/Route';
 
 const Sidebar = () => {
   return (
@@ -24,28 +25,20 @@ const Sidebar = () => {
           <CDBSidebarMenu>
           
             
-          <NavLink  exact to="/managers/merchandisers" activeClassName="activeClicked">
+          <NavLink  exact to="/manager/merchandisers" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="fa fa-users">Merchandisers</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact={true} path="/managers/locations" activeClassName="activeClicked">
+            <NavLink exact to="/manager/locations" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="fa fa-map-marker">Locations</CDBSidebarMenuItem>
             </NavLink>
 
-            <NavLink exact to="/hero404" target="_blank" activeClassName="activeClicked">
+            <NavLink  exact to="/manager/routes" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="fa fa-building">Routes</CDBSidebarMenuItem>
             </NavLink>
           </CDBSidebarMenu>
         </CDBSidebarContent>
 
-        <CDBSidebarFooter style={{ textAlign: 'center' }}>
-          <div
-            style={{
-              padding: '20px 5px',
-            }}
-          >
-            Sidebar Footer
-          </div>
-        </CDBSidebarFooter>
+        
       </CDBSidebar>
     </div>
   );

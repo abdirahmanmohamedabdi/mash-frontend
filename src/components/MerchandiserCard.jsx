@@ -1,19 +1,24 @@
+import Sidebar from "./Sidebar";
+
 function Card(props) {
   return (
+    <div className="container-1">
     <section id="sectionCard">
     <div className="carder">
     <div className="card" >
   
-  <ul className="list-group list-group-flush">
-    <li className="list-group-item">Name: {props.merchandiser.full_name}</li>
-    <li className="list-group-item">Liscence Number: {props.engineer.license_number}</li>
-    <li className="list-group-item">Experience: {props.engineer.experience}</li>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Name: {props.engineer.email}</li>
+    <li class="list-group-item">Phone Number: {props.engineer.phone_number}</li>
+    <li class="list-group-item">ID: {props.engineer.id}</li>
+    <li class="list-group-item">Username: {props.engineer.username}</li>
     
   </ul>
 </div>
 
 </div>
 </section>
+</div>
   );
 }
 

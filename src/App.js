@@ -4,11 +4,12 @@ import Navigation from "./components/Navbar";
 import { AuthProvider } from "./components/AuthProvider";
 import Location from "./pages/Location";
 import { Home } from "./pages/Home"
+import Routed from "./pages/Route";
 import MerchandiserCard from "./components/MerchandiserCard";
 import SignUpForm from "./pages/Signup"
 import Login from "./pages/Login";
 import Google from "./components/Google";
-
+import Sidebar from "./components/Sidebar";
 import "./App.css";
 import { Routes, Route,Navigate } from "react-router-dom";
 import Manager from "./pages/Manager";
@@ -82,9 +83,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} /> 
           <Route path="/signup" element={<SignUpForm />} />
-          <Route path="//managers/merchandisers" element={<MerchandisersContainer />} />
+          
+          <Route path="/manager" element={<Manager/>}>
+              <Route path="/manager/merchandisers" element={<MerchandisersContainer />} />
+              <Route path="/manager/locations" element={<Google />} />
+              <Route path="/manager/routes" element={<Routed />} />
+          </Route>
           <Route path="/location" element={<Location />}> </Route>
-          <Route path="/manager" element={<Manager />}> </Route>
+          
           <Route path="/login" element={<Login />} />
         </Routes>
         {/* <Google /> */}

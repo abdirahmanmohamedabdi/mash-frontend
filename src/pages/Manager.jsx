@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Location from "./Location";
 import MerchandisersContainer from "../components/MerchandisersContainer";
 import Sidebar from "../components/Sidebar";
-export default function Manager() {
+export default function Manager({ children }) {
   const { token, role } = useContext(AuthContext);
   if (!token && role !== "manager") {
     return <Navigate to="/" replace />;
@@ -13,13 +13,7 @@ export default function Manager() {
   return (
     <div>
       <Sidebar />
-      <MerchandisersContainer />
-      <Routes>
-        <Route path="/managers/merchandisers" element={<Location />}>
-          {/* <Route path="info" element={<TeacherInformation />}> */}
-        </Route>
-        {/* </Route> */}
-      </Routes>
+      <div>{children}</div>
     </div>
   );
 }

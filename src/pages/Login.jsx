@@ -44,7 +44,7 @@ function Login() {
           if(res.role === 'merch'){
             navigate('/location')
           }else {
-            navigate('/manager')
+            navigate('/manager/merchandisers')
           }
         }
         else{
