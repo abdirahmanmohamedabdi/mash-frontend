@@ -10,17 +10,18 @@ function Routeplan() {
   const [outlets, setOutlets] = useState("");
   const [location, setlocation] = useState("");
   const [time, setTime] = useState("");
+  const [show, setShow] = useState(true)
   const current = new Date();
   const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
   const [dates, setDate] = useState(new Date())
 
-  const checkValidInputs = (route_name, merchandiser, outlets, location, time) => {
-    //ensure no empty values submited to the db
-    if (route_name !== "" && merchandiser !== "" && outlets !== "" && location !== "" && time !== "") {
-      console.log("All inputs available");
-      return true;
-    }
-  };
+  // const checkValidInputs = (route_name, merchandiser, outlets, location, time) => {
+  //   //ensure no empty values submited to the db
+  //   if (route_name !== "" && merchandiser !== "" && outlets !== "" && location !== "" && time !== "") {
+  //     console.log("All inputs available");
+  //     return true;
+  //   }
+  // };
 
   
 
@@ -35,7 +36,7 @@ function Routeplan() {
         time: time
   }
 
-  if (checkValidInputs(route_name, merchandiser, outlets, location, time)) {
+  // if (checkValidInputs(route_name, merchandiser, outlets, location, time)) {
       fetch("http://127.0.0.1:3000/route_plans", {
         method: "POST",
         headers: {
@@ -53,10 +54,10 @@ function Routeplan() {
       setlocation("");
       setTime("");
     }
-    else {
-      alert('Check form inputs')
-    }
-  }
+  //   else {
+  //     alert('Check form inputs')
+  //   }
+  // }
     
 
 
@@ -66,9 +67,17 @@ function Routeplan() {
     }>
 
      <form style={styles.form} onSubmit={handleSubmit} >
-     <Calendar onChange={setDate} value={dates}/>
-       date: {dates.toDateString()}
-        <h2>Create Routes </h2>  {date} <button> <FaCalendarAlt /></button>
+     <div>
+       {
+         show?
+         <h5>
+         <Calendar onChange={setDate} value={dates}/>
+          date: {dates.toDateString()}</h5>
+          :null
+       } 
+     </div>
+  
+        <h2>Create Routes </h2>  {date} <button onClick={() => setShow(!show)}> <FaCalendarAlt /></button>
             <label>Route Name</label>
             <input style={styles.input }
                  type="text" 
