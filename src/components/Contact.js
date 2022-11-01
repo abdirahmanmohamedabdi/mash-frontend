@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import styled from "styled-components";
 
 function Contact() {
     const form = useRef();
@@ -7,16 +8,17 @@ function Contact() {
     const sendEmail = (e) => {
       e.preventDefault();
   
-      emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
+      emailjs.sendForm('service_ll0476q', 'template_s4ueued', form.current, 'A_p18Wq0uXEyNy7xV')
         .then((result) => {
             console.log(result.text);
+            console.log("Message sent")
         }, (error) => {
             console.log(error.text);
         });
     };
   
   return (
-    <div>
+    <StyledContactForm>
       <form ref={form} onSubmit={sendEmail}>
       <label>Name</label>
       <input type="text" name="user_name" />
@@ -26,7 +28,7 @@ function Contact() {
       <textarea name="message" />
       <input type="submit" value="Send" />
     </form>
-    </div>
+    </StyledContactForm>
   )
 }
 

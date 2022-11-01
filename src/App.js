@@ -13,6 +13,7 @@ import Sidebar from "./components/Sidebar"
 import "./App.css";
 import { Routes, Route,Navigate } from "react-router-dom";
 import Manager from "./pages/Manager";
+import Contact from "./components/Contact";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route path="/manager" element={<Manager />}> </Route>
         </Routes>
         <Google />
+        <Contact />
       </div>
     </AuthProvider>
   );
