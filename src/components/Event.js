@@ -1,19 +1,21 @@
-  let gapi = window.gapi;
+import { gapi } from "gapi-script";
+  // let gapi = window.gapi;
   const API_KEY = 'AIzaSyBA9q_s3VIeC4hMV7FEo8FshHejLNlRsBM'; 
   const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
   const CLIENT_ID = ('1040779831837-bic88l3ijnp45g86lgvih60emsr35n6q.apps.googleusercontent.com');
   const SCOPES = "https://www.googleapis.com/auth/calendar.events";
-  const REFRESH_TOKEN = 'ya29.a0Aa4xrXNXSnJbc7ZtwJYz3sPIcVe240yNJEP3jVgHYXh8MF6s7S4-0Samume3l127e4DNoCQNbnucYc2wRA2x296W7aA_ef5oNrPj7_14AfIUxjTsDIgCSvBJe3juO0fUHrcGvBAyGNHRl0HQymn4nnJbqpdgBQaCgYKATASARASFQEjDvL98ai7OWLzFqj-LBOG1tU5QQ0165';
+  const REFRESH_TOKEN = '1//04VjklBh8HlpPCgYIARAAGAQSNwF-L9IrgkySSMfLkwEg686I2ImntV0qabn0eacQAG4sSUxk3SuIods0MzG6ryB7umgRMo-0UxU';
 
   export function initClient(callback){
     gapi.load('client:auth2',()=>{
-      try{
+      try {
         gapi.client.init({
           apiKey: API_KEY,
           clientId: CLIENT_ID,
           discoveryDocs: DISCOVERY_DOCS,
-          scope: SCOPES, 
-          refreshToken: REFRESH_TOKEN
+          scope: SCOPES,
+          refreshToken: REFRESH_TOKEN,
+          // plugin_name: 'Calender-app'
         }).then(function (){
           if (typeof(callback)==='function'){
             callback(true)
@@ -42,7 +44,7 @@
       if (googleuser){
         return true;
       }
-    }catch(error){
+    } catch (error) {
       console.log(error)
     }
   };

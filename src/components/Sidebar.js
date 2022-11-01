@@ -29,11 +29,11 @@ const Sidebar = ({children}) => {
             name:"Routes",
             icon:<FaRegChartBar/>
         },
-        {
-            path:"/locations",
-            name:"Locations",
-            icon:<FaCommentAlt/>
-        },
+        // {
+        //     path:"/locations",
+        //     name:"Locations",
+        //     icon:<FaCommentAlt/>
+        // },
         {
             path:"/merchandisers",
             name:"Merchandisers",

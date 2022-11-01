@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { gapi } from 'gapi-script';
 import { signInToGoogle, initClient,getSignedInUserEmail, signOutFromGoogle , publishTheCalenderEvent } from './Event';
+import moment from "moment-timezone";
+// import { useNavigate } from 'react-router-dom';
 export default function Google() {
 
     const [signedIn, setSignedIn] = useState(false);
@@ -11,6 +14,17 @@ export default function Google() {
     //     e.preventDefault();
     // }
 
+    // useEffect(() => {
+    //     function start() {
+    //       gapi.client.init({
+    //         clientId: process.env.REACT_PUBLIC_GOOGLE_CLIENT_ID,
+    //         scope: 'email',
+    //       });
+    //     }
+    
+    //     gapi.load('client:auth2', start);
+    //   }, []);
+    
     useEffect(()=>{
         initClient((success)=>{
             if (success){
@@ -44,11 +58,11 @@ export default function Google() {
         var event = {
             description,
             'start': {
-                'dateTime':(startTime),
+                'dateTime':moment(startTime),
                 'timeZone': 'Africa/Kenya'
               },
               'end': {
-                'dateTime':(endTime),
+                'dateTime': moment(endTime),
                 'timeZone': 'Africa/Kenya'
               },
         }

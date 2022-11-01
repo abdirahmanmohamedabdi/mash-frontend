@@ -19,8 +19,10 @@ function App() {
   return (
     <AuthProvider>
       <div className="App">
-        <Navigation />
+      <Navigation />
+        <div>
         <Sidebar />
+        </div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard/>} />
@@ -28,7 +30,6 @@ function App() {
           <Route path="/signup" element={<SignUpForm />} />
           <Route path="/location" element={<Location />}> </Route>
           <Route path="/manager" element={<Manager />}> </Route>
-          <Route path="/login" element={<Login />} />
         </Routes>
         <Google />
       </div>
