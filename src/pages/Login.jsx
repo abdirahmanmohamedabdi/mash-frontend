@@ -64,7 +64,7 @@ function Login() {
   }
   return (
     <div className="Auth-form-container">
-      <Container>
+      <Container  style={{marginLeft: "300px",width:"800px"}}>
         <Row>
           <h2>Login</h2>
           <Form className="Auth-form" onSubmit={handleSubmit}>
@@ -101,7 +101,7 @@ function Login() {
               
             </Form.Group>
 
-            <Button variant="dark" type="submit">
+            <Button class="btn btn-outline-info" style={{width:"150px"}}  type="submit">
               Login
             </Button>
           </Form>

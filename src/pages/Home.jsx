@@ -1,5 +1,4 @@
 import React from 'react'
-import MerchandisersContainer from '../components/MerchandisersContainer';
 import { AuthContext } from '../components/AuthProvider';
 
 
@@ -26,7 +25,6 @@ export const Home = () => {
         </div>
       </div>
     </header>
-      
 
 
     
