@@ -1,5 +1,4 @@
 import React from 'react'
-import Events from './Events';
 import { AuthContext } from '../components/AuthProvider';
 
 
@@ -26,8 +25,7 @@ export const Home = () => {
         </div>
       </div>
     </header>
-      
- {/* <Events /> */}
+
 
     
     </div>

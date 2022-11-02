@@ -3,7 +3,9 @@ import Calendar from 'react-calendar';
 import { FaCalendarAlt } from "react-icons/fa";
 import Form from "react-bootstrap/Form";
 import "../calender.css"
+import Routes from "./Routes"
 import CalenderEvent from './CalenderEvent';
+
 
 function Routeplan() {
 
@@ -160,7 +162,9 @@ function Routeplan() {
 
       </Form>
 
-      <CalenderEvent />
+      {/* <CalenderEvent /> */}
+      {/* <Events /> */}
+      <Routes />
     </div>
      
   )

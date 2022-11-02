@@ -15,6 +15,7 @@ import "./App.css";
 import { Routes, Route,Navigate } from "react-router-dom";
 import Manager from "./pages/Manager";
 import Merchants from "./pages/Merchants";
+import Events from "./pages/Events";
 function App() {
   return (
     <AuthProvider>
@@ -36,6 +37,7 @@ function App() {
               <Route path="/manager/locations" element={<Google />} />
               <Route path="/manager/routes" element={<Routeplan />} />
               <Route path="/manager/outlets" element={<Outlet />} />
+              <Route path="/manager/calendar" element={<Events />} />
           {/* </Route> */}
           <Route path="/location" element={<Location />}> </Route>
           <Route path="/manager" element={<Manager />}> </Route>

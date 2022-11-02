@@ -31,11 +31,14 @@ const Sidebar = () => {
             </NavLink>
 
             <NavLink  exact to="/manager/routes" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="fa fa-calendar-check">Routes</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="fa fa-map">Routes</CDBSidebarMenuItem>
             </NavLink>
 
             <NavLink  exact to="/manager/outlets" activeClassName="activeClicked">
               <CDBSidebarMenuItem icon="fa fa-building">Outlets</CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink  exact to="/manager/calendar" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="fa fa-calendar-check">Calendar</CDBSidebarMenuItem>
             </NavLink>
           </CDBSidebarMenu>
         </CDBSidebarContent>
