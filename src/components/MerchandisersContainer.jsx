@@ -29,7 +29,7 @@ function MerchandisersContainer(){
 
     
   return <div >  
-     <Table responsive="xl" >
+     <Table responsive >
   <thead>
     <tr>
       <th>#
