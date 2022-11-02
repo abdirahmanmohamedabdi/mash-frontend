@@ -1,6 +1,6 @@
 import React from 'react'
-import MerchandisersContainer from '../components/MerchandisersContainer';
-import Route from "../pages/Route"
+import Events from './Events';
+import CalenderEvent from './CalenderEvent'
 import { AuthContext } from '../components/AuthProvider';
 
 
@@ -28,7 +28,8 @@ export const Home = () => {
       </div>
     </header>
       
-
+ {/* <Events /> */}
+ <CalenderEvent />
 
     
     </div>
