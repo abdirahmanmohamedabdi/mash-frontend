@@ -33,3 +33,10 @@ function Contact() {
 }
 
 export default Contact
+
+const StyledContactForm = styled.div`
+width: 400px;
+
+form {
+    display: flex
+}`
