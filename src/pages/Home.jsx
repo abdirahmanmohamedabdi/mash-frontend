@@ -1,6 +1,5 @@
 import React from 'react'
 import Events from './Events';
-import CalenderEvent from './CalenderEvent'
 import { AuthContext } from '../components/AuthProvider';
 
 
@@ -29,7 +28,6 @@ export const Home = () => {
     </header>
       
  {/* <Events /> */}
- <CalenderEvent />
 
     
     </div>

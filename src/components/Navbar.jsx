@@ -9,7 +9,7 @@ function Navigation() {
   const { token, onLogout } = React.useContext(AuthContext);
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Container>
+      <Container backgroundColor="rgb(24, 151, 143)">
         <Navbar.Brand href="/">Mash-Industries</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
