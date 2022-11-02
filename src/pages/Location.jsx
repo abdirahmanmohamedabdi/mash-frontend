@@ -1,54 +1,48 @@
 import { useState, useEffect, useContext } from "react";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
-import { AuthContext } from "../components/AuthProvider";
 import { Navigate } from "react-router-dom";
+import { Row, Col, Card, Button,Container, ToggleButton } from "react-bootstrap";
 import Time from "../components/Button";
+
 function MapCtx(props) {}
 
 //
 //
 // }
 function Location(props) {
-
- 
-  const { token, role } = useContext(AuthContext);
   const [position, setPosition] = useState({});
-  // const state = {
-  //   status: false,
-  //   switchButton: "Off",
-  // };
+  let [track, setTrack] = useState(true);
   const [fetched, setFetched] = useState(false);
-  
+  const handleChange = () => {
+    return setTrack(!track);
+  };
+
+  const style = {
+    width: '100%',
+    height: '100%'
+  }
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function ({ coords }) {
-        console.log(coords)
+        console.log(coords);
         setPosition({ lat: coords.latitude, lng: coords.longitude });
         setFetched(true);
       });
     }
   }, []);
-  if (!token && role !== "merch") {
-    return <Navigate to="/" replace />;
-  }
 
-  
-  
   return (
-  
-    <div className="Mapstyles">
-
-
-
-     <div>
-   
-     </div>
+      <div>
       {fetched && (
-        <Map google={props.google} initialCenter={position}>
+        <>
+        <ToggleButton onClick={() => handleChange()}></ToggleButton>
+      {track ? "on" : "off"}
+    
+        <Map style={style} google={props.google} initialCenter={position}>
           <Marker />
         </Map>
-      )}
-    </div>
+        </>)}
+      </div>
   );
 }
 export default GoogleApiWrapper({
