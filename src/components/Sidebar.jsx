@@ -8,6 +8,8 @@ import {
   CDBSidebarMenuItem,
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
+import MerchandisersContainer from './MerchandisersContainer';
+import Routeplan from '../pages/Routeplan'
 
 const Sidebar = () => {
   return (

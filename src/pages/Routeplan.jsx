@@ -89,10 +89,10 @@ function Routeplan() {
 
        
 
-       <div  class="col-8">
+       <div  className="col-8">
             <label for="floatingInput">Route Name</label>
             <input  
-                class="form-control" 
+                className="form-control" 
                 id="floatingInput" 
                 type="text" 
                 placeholder="Route name" 
@@ -103,10 +103,10 @@ function Routeplan() {
         </div>
 
 
-        <div  class="col-8">
+        <div  className="col-8">
             <label for="floatingInput">Merchandiser</label>
             <input 
-              class="form-control" 
+              className="form-control" 
                 id="floatingInput" 
                  type="text" 
                 placeholder="merchandiser" 
@@ -117,11 +117,11 @@ function Routeplan() {
 
         </div>
 
-        <div class="col-8">
+        <div className="col-8">
 
             <label for="floatingInput">Outlets</label>
             <input 
-                class="form-control" 
+                className="form-control" 
                 id="floatingInput" 
                 type="text" 
                 placeholder="outlets" 
@@ -130,10 +130,10 @@ function Routeplan() {
 
              />
        </div>
-          <div class="col-8">
+          <div className="col-8">
             <label for="floatingInput">location</label>
             <input 
-               class="form-control" 
+               className="form-control" 
                 id="floatingInput" 
                 type="text" 
                 placeholder="location" 
@@ -143,11 +143,11 @@ function Routeplan() {
              />
           </div>
 
-          <div class="col-8">
+          <div className="col-8">
 
             <label for="floatingInput">Time</label>
             <input 
-                class="form-control" 
+                className="form-control" 
                 id="floatingInput" 
                  type="text" 
                 placeholder="time" 

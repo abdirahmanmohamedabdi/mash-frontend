@@ -1,6 +1,6 @@
 import { useState,useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { AuthContext } from "../components/AuthProvider";
@@ -66,7 +66,8 @@ function Login() {
     <div className="Auth-form-container">
       <Container  style={{marginLeft: "300px",width:"800px"}}>
         <Row>
-          <h2>Login</h2>
+          <Col lg={{span: 6, offset: 3}}>
+          <h2 className="sign">Login</h2>
           <Form className="Auth-form" onSubmit={handleSubmit}>
             <Form.Select value={role} onChange={(e) => setRole(e.target.value)}>
               <option value="manager">
@@ -101,10 +102,11 @@ function Login() {
               
             </Form.Group>
 
-            <Button class="btn btn-outline-info" style={{width:"150px"}}  type="submit">
+            <Button className="signout" type="submit">
               Login
             </Button>
           </Form>
+          </Col>
         </Row>
       </Container>
     </div>

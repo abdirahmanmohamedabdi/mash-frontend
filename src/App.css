@@ -1,11 +1,67 @@
+
+
 .App {
-  
-  font-family: "Roboto", sans-serif;
-  min-height: 100vh;
+  font-family: sans-serif;
   text-align: center;
-  background-color: rgb(233, 218, 193);
-  
 }
+
+
+.navbar{
+background-color: #112D4E;
+}
+
+.nav-link{
+  color: #DBE2EF;
+}
+.navbar-brand{
+ 
+
+  color: #DBE2EF;
+}
+.sign{
+  color: #3F72AF;
+}
+.signout{
+  
+  border-radius: 4px;
+  background-color: #3F72AF;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+
+  padding: 10px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  position: relative;
+}
+
+.img{
+  background-color: #112D4E;
+  height: 491.515px;}
+
+
+.tagline{
+  color: #3F72AF;
+  text-decoration-style: dotted;
+}
+
+
+.mb-3{
+  color:  #3F72AF;
+}
+
+
+.card{
+  height: 367.911px; transform: translate(302.276px, 63.5882px); width: 894.134px;;
+}
+/* 
 
 .App-logo {
   height: 40vmin;
@@ -26,7 +82,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  
 }
 
 .App-link {
