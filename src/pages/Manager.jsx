@@ -1,11 +1,19 @@
 import { useContext } from "react";
 import { Navigate } from "react-router-dom";
 import { AuthContext } from "../components/AuthProvider";
-
-export default function Manager() {
+import { Route, Routes } from "react-router-dom";
+import Location from "./Location";
+import MerchandisersContainer from "../components/MerchandisersContainer";
+import Sidebar from "../components/Sidebar";
+export default function Manager({ children }) {
   const { token, role } = useContext(AuthContext);
   if (!token && role !== "manager") {
     return <Navigate to="/" replace />;
   }
-  return <div>Manager</div>;
+  return (
+    <div>
+      <Sidebar />
+      <div>{children}</div>
+    </div>
+  );
 }

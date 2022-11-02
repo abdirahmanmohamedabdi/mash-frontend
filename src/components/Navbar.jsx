@@ -16,11 +16,11 @@ function Navigation() {
           <Nav className="me-auto"></Nav>
           <Nav>
             {!token && <Nav.Link href="/signup">Sign Up</Nav.Link>}
-             <Nav.Link href="/location">Location</Nav.Link>
+             
             {!token && <Nav.Link href="/login">Log In {token}</Nav.Link>}
             {token && (
               <button type="button" onClick={onLogout}>
-                Sign Out
+                Sign out
               </button>
             )}
 

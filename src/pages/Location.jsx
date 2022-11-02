@@ -1,31 +1,28 @@
-import { useState, useEffect,useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import { AuthContext } from "../components/AuthProvider";
 import { Navigate } from "react-router-dom";
-
+import Time from "../components/Button";
 function MapCtx(props) {}
-function handleSubmit(e) {
-  e.preventDefault();
 
-  fetch("/api/location", {
-    method: "POST",
-    headers: {
-      contentType: "application/json",
-    },
-    body: JSON.stringify(),
-  }).then((res) => res.json());
-}
+//
+//
+// }
 function Location(props) {
+
+ 
   const { token, role } = useContext(AuthContext);
   const [position, setPosition] = useState({});
-  const state = {
-    status: false,
-    switchButton: "Off",
-  };
+  // const state = {
+  //   status: false,
+  //   switchButton: "Off",
+  // };
   const [fetched, setFetched] = useState(false);
+  
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function ({ coords }) {
+        console.log(coords)
         setPosition({ lat: coords.latitude, lng: coords.longitude });
         setFetched(true);
       });
@@ -34,8 +31,18 @@ function Location(props) {
   if (!token && role !== "merch") {
     return <Navigate to="/" replace />;
   }
+
+  
+  
   return (
+  
     <div className="Mapstyles">
+
+
+
+     <div>
+   
+     </div>
       {fetched && (
         <Map google={props.google} initialCenter={position}>
           <Marker />
