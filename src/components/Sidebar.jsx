@@ -9,7 +9,7 @@ import {
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
 import MerchandisersContainer from './MerchandisersContainer';
-import Routed from '../pages/Route';
+
 
 const Sidebar = () => {
   return (
