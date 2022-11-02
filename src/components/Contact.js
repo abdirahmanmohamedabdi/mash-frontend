@@ -38,5 +38,18 @@ const StyledContactForm = styled.div`
 width: 400px;
 
 form {
-    display: flex
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%
+    font-size: 20px;
+
+    input {
+      width: 100%;
+      height: 35px;
+      padding: 7px;
+      outline: none;
+      border-radius: 5px;
+      border: 1px solid rgb(220, 220, 220);
+    }
 }`
