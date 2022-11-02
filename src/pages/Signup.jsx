@@ -62,7 +62,7 @@ function Signup() {
   }
   return (
     <div className="Auth-form-container">
-      <Container>
+      <Container style={{marginLeft: "300px",width:"800px"}}>
         <Row>
           <h2 className="sign">Sign Up</h2>
           <Form className="Auth-form" onSubmit={handleSubmit}>

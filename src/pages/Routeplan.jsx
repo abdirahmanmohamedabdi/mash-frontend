@@ -2,7 +2,10 @@ import React, {useState} from 'react'
 import Calendar from 'react-calendar'; 
 import { FaCalendarAlt } from "react-icons/fa";
 import Form from "react-bootstrap/Form";
-import "../App.css"
+import "../calender.css"
+import Routes from "./Routes"
+import CalenderEvent from './CalenderEvent';
+
 
 function Routeplan() {
 
@@ -63,7 +66,7 @@ function Routeplan() {
 
 
   return (
-    <div >
+    <div  style={styles.all}>
 
      <Form style={styles.form} onSubmit={handleSubmit} >
     
@@ -155,10 +158,13 @@ function Routeplan() {
           </div>
 
 
-        <button style={styles.button } className="signout"> Send Route Plan </button>
+        <button style={styles.button } class="btn btn-outline-info"> Send Route Plan </button>
+
       </Form>
 
-    
+      {/* <CalenderEvent /> */}
+      {/* <Events /> */}
+      <Routes />
     </div>
      
   )
@@ -167,12 +173,7 @@ function Routeplan() {
 
 const styles = {
   all: {
-    display: "flex",
-    flexDirection: "row",
-    margin: "100px",
-    padding: "50px ",
-    justifycontent: "space between",
-    color: "black"
+    height: "100vh"
   },
   h3: {
     padding: "20px", 

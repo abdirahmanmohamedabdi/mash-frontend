@@ -64,7 +64,7 @@ function Login() {
   }
   return (
     <div className="Auth-form-container">
-      <Container>
+      <Container  style={{marginLeft: "300px",width:"800px"}}>
         <Row>
           <Col lg={{span: 6, offset: 3}}>
           <h2 className="sign">Login</h2>

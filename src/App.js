@@ -15,13 +15,13 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Routeplan from "./pages/Routeplan";
 import About from "./pages/About";
 import Dashboard from "./pages/Dashboard"
+import Outlet from "./pages/Outlet";
 import Sidebar from "./components/Sidebar";
 import "./App.css";
 import { Routes, Route,Navigate } from "react-router-dom";
 import Manager from "./pages/Manager";
-import Signup from "./pages/Signup";
-import MerchandisersContainer from "./components/MerchandisersContainer";
 import Merchants from "./pages/Merchants";
+import Events from "./pages/Events";
 function App() {
   return (
     <AuthProvider>

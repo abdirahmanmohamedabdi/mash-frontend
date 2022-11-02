@@ -10,7 +10,7 @@ const Merchants = ({ column }) => {
     fetch("http://localhost:3000/merchandisers")
       .then((response) => response.json())
       .then((data) => setMerchandisers(data));
-  }, [merchandisers]);
+  }, []);
 
   function handleDelete(id) {
     fetch(`http://localhost:3000/merchandisers/${id}`, {
@@ -28,21 +28,26 @@ borderRadius:"50%"
 
   return (
     <div className={`${column}`}>
-          <Button  classN="btn btn-primary">Add Merchandiser</Button>
+    <Button  classN="btn btn-primary"  style={{backgroundColor: "",marginTop: "40px",marginLeft:"1200px"}}>Add Merchandiser</Button>
+          
       <table
         className="table table-striped border1"
         style={{
           fontSize: "1rem",
-          margin: "auto",
-          backgroundColor: "#809BA6",
+          width:"1300px",
+          marginLeft: "80px",
+          marginTop: "20px",
+          backgroundColor: "rgb(247, 236, 222)",
         }}
       >
+      
         <thead className="table-dark">
           <tr>
             <th>Id:</th>
             <th>Username:</th>
             <th>Image:</th>
             <th>Email:</th>
+            <th>Contact:</th>
             <th>Location:</th>
           </tr>
         </thead>
@@ -53,6 +58,7 @@ borderRadius:"50%"
               <td>{merchandiser.username}</td>
               <td><img src={merchandiser.image} style={imageStyle} alt="merchandiser" ></img></td>
               <td>{merchandiser.email}</td>
+              <td>{merchandiser.contact}</td>
               <td>{merchandiser.location}</td>
               <td>
                 <Button  classN="btn btn-primary">Edit</Button>
