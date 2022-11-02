@@ -1,6 +1,5 @@
 import React from 'react'
 import MerchandisersContainer from '../components/MerchandisersContainer';
-import Route from "../pages/Route"
 import { AuthContext } from '../components/AuthProvider';
 
 
