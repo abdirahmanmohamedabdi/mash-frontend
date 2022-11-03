@@ -15,7 +15,6 @@ import "./App.css";
 import { Routes, Route,Navigate } from "react-router-dom";
 import Manager from "./pages/Manager";
 import Signup from "./pages/Signup";
-import Contact from "./components/Contact";
 import MerchandisersContainer from "./components/MerchandisersContainer";
 import Merchants from "./pages/Merchants";
 function App() {
