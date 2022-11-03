@@ -40,7 +40,7 @@ function Login() {
       .then((res) => {
         if(res.token){
           alert('Successful Login')
-          onLogin(res.token,res.role)
+          onLogin(res.token,res.role,res.user_id)
           if(res.role === 'merch'){
             navigate('/location')
           }else {

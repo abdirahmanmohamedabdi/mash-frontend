@@ -11,6 +11,9 @@ import { Home } from "./pages/Home";
 import { ManagerLayout } from "./layouts/ManagerLayout";
 import { MerchandiserLayout } from "./layouts/MerchandiserLayout";
 
+
+import Mapers from "./components/Tester";
+
 import Navigation from "./components/Navbar";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Routeplan from "./pages/Routeplan";
@@ -34,7 +37,7 @@ function App() {
             <Route path="/manager/merchandisers" element={<StripedRowExample />} />
             <Route path="/manager/outlets" element={<Outlets />} />
             <Route path="/manager/calendar" element={<Events />} />
-            <Route path="/manager/locations" element={<GetPosition />} />
+            <Route path="/manager/locations" element={<Mapers />} />
             <Route path="/manager/routes" element={<Routeplan />} />
           </Route>
           <Route element={<MerchandiserLayout />}>

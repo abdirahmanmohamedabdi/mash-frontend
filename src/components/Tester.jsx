@@ -1,44 +1,50 @@
-import { FaErlang } from "react-icons/fa";
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import React from "react";
-function MyVerticallyCenteredModal(){
- 
-  
-   
-  
-  const processManualLocation = () => {
-    if (props.userState !== "" && props.userCity !== "") {
-    let city = props.userCity // manual lat entry is already in store state
-    let state = props.userPostalCode // manual long entry is already in store state
-    // This fetch uses the API key stored in your fron-end .env file "process.env.REACT_APP_googleKey"
-    let url = `https://maps.googleapis.com/maps/api/geocode/json?address=+${city},+${state}&key=${process.env.REACT_APP_googleKey}`
-    fetch(url)
-    .then(res => res.json())
-    .then(res => {
-    if (res.status === "OK") {
-    getUserCoords(res.results)
-    } else if (res.status === "ZERO_RESULTS") {
-    alert('Unable to process this location. Please revise location fields and try submitting again.')
-    }
-    })
-    } else {
-    alert('Please ensure State and City are provided.')
-    }
-    }
-    // Obtaining and dispatching lat and long coords from google geocoding API response
-    const getUserCoords = (googleRes) => {
-    let lat = googleRes[0].geometry.location.lat // You have obtained latitude coordinate!
-    let long = googleRes[0].geometry.location.lng // You have obtained longitude coordinate!
-    props.set_lat(lat) // dispatching to store state
-    props.set_long(long) //dispatching to store state
-    }
-    
-  
-      
-  
-  
-  
+import React, { Component } from "react";
+import { withGoogleMap, GoogleMap } from "react-google-maps";
+
+class Mapers extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      center: { lat: 24.886, lng: -70.268 },
+      link: ""
+    };
   }
-  
-  export default MyVerticallyCenteredModal;
+
+  onMapClick = e => {
+    console.log(e.latLng.lat());
+
+    this.setState({
+      link:
+        "https://www.google.com/maps/search/?api=1&query=" +
+        e.latLng.lat() +
+        "," +
+        e.latLng.lng()
+    });
+  };
+
+  render() {
+    const GoogleMapExample = withGoogleMap(props => (
+      <GoogleMap
+        defaultCenter={this.state.center}
+        defaultZoom={3}
+        onClick={this.onMapClick}
+      />
+    ));
+
+    return (
+      <div>
+        <p>Click the map to get link of coordinate</p>
+        {this.state.link !== "" && (
+          <a href={this.state.link}>{this.state.link}</a>
+        )}
+        <GoogleMapExample
+          containerElement={<div style={{ height: `500px`, width: "500px" }} />}
+          mapElement={<div style={{ height: `100%` }} />}
+        />
+      </div>
+    );
+  }
+}
+
+export default Mapers;
