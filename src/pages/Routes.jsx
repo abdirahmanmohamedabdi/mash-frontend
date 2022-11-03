@@ -17,7 +17,9 @@ import emailjs from '@emailjs/browser';
   };
 
   return (
-    <form ref={form} onSubmit={sendEmail}style = {{display:"flex",flexDirection:"column",marginLeft:"100px"}}>
+    <>
+    <h2 style = {{alignItems:"center",marginTop:"100px"}}>Send Routes Via Email</h2>
+    <form ref={form} onSubmit={sendEmail}style = {{display:"flex",flexDirection:"column",marginLeft:"200px",marginTop:"50px",marginRight:"200px"}}>
       <label>Merchant Name</label>
       <input type="text" name="user_name" />
       <label>Email</label>
@@ -28,8 +30,9 @@ import emailjs from '@emailjs/browser';
       <textarea name="message" />
       <label>Location</label>
       <textarea name="message" />
-      <button style = {{width:"400px",borderRadius: 10, margin: "30px 300px"}} class="btn btn-outline-info" type="submit">Send Routes</button>
+      <button style = {{width:"350px",borderRadius: 10, margin: "30px 370px"}} class="btn btn-outline-info" type="submit">Send Routes</button>
     </form>
+    </>
   );
 };
 export default Routes
