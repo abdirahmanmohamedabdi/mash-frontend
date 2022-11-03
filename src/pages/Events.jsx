@@ -21,25 +21,25 @@ const localizer = dateFnsLocalizer({
 
 const events = [
     {
-        title: "Big Meeting",
+        event: "Big Meeting",
         allDay: true,
         start: new Date(2021, 6, 0),
         end: new Date(2021, 6, 0),
     },
     {
-        title: "Vacation",
+        event: "Vacation",
         start: new Date(2021, 6, 7),
         end: new Date(2021, 6, 10),
     },
     {
-        title: "Conference",
+        event: "Conference",
         start: new Date(2021, 6, 20),
         end: new Date(2021, 6, 23),
     },
 ];
 
 function Events() {
-    const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
+    const [newEvent, setNewEvent] = useState({ event: "", start: "", end: "" });
     const [allEvents, setAllEvents] = useState(events);
 
     function handleAddEvent() {
@@ -68,14 +68,14 @@ function Events() {
     }
 
     return (
-        <div className="App">
-            <h1>Calendar</h1>
+        <div className="App" style = {{width:"1200px",marginLeft:"100px"}}>
+           
             <h2>Add New Event</h2>
-            <div>
-                <input type="text" placeholder="Add Title" style={{ width: "20%", marginRight: "10px" }} value={newEvent.title} onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })} />
-                <DatePicker placeholderText="Start Date" style={{ marginRight: "10px" }} selected={newEvent.start} onChange={(start) => setNewEvent({ ...newEvent, start })} />
+            <div >
+                <input type="text" placeholder="Add Event" style={{ width:"30%",marginRight:"10px",margin:"10px" }} value={newEvent.event} onChange={(e) => setNewEvent({ ...newEvent, event: e.target.value })} />
+                <DatePicker placeholderText="Start Date" style={{ marginRight:"10px"}} selected={newEvent.start} onChange={(start) => setNewEvent({ ...newEvent, start })} />
                 <DatePicker placeholderText="End Date" selected={newEvent.end} onChange={(end) => setNewEvent({ ...newEvent, end })} />
-                <button stlye={{ marginTop: "10px" }} onClick={handleAddEvent}>
+                <button style = {{width:"150px",borderRadius: 10, margin: "30px 300px"}}  onClick={handleAddEvent}>
                     Add Event
                 </button>
             </div>

@@ -164,7 +164,7 @@ function Routeplan() {
 
       {/* <CalenderEvent /> */}
       {/* <Events /> */}
-      <Routes />
+      {/* <Routes /> */}
     </div>
      
   )
