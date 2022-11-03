@@ -1,11 +1,12 @@
 import React from "react";
 import { AuthProvider } from "./components/AuthProvider";
-
+import Events from "./pages/Events";
 import Login from "./pages/Login";
+import GetPosition from "./pages/LocationCard";
 import Location from "./pages/Location";
 import StripedRowExample from "./components/MerchandisersContainer";
 import Signup from "./pages/Signup";
-
+import Outlets from "./pages/Outlets";
 import { Home } from "./pages/Home";
 import { ManagerLayout } from "./layouts/ManagerLayout";
 import { MerchandiserLayout } from "./layouts/MerchandiserLayout";
@@ -15,12 +16,10 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Routeplan from "./pages/Routeplan";
 import About from "./pages/About";
 import Dashboard from "./pages/Dashboard"
-import Outlet from "./pages/Outlet";
 import Sidebar from "./components/Sidebar";
 import "./App.css";
 import Manager from "./pages/Manager";
 import Merchants from "./pages/Merchants";
-import Events from "./pages/Events";
 function App() {
   return (
     <AuthProvider>
@@ -33,7 +32,9 @@ function App() {
 
           <Route element={<ManagerLayout />}>
             <Route path="/manager/merchandisers" element={<StripedRowExample />} />
-            {/* <Route path="/manager/locations" element={<Locations />} /> */}
+            <Route path="/manager/outlets" element={<Outlets />} />
+            <Route path="/manager/calendar" element={<Events />} />
+            <Route path="/manager/locations" element={<GetPosition />} />
             <Route path="/manager/routes" element={<Routeplan />} />
           </Route>
           <Route element={<MerchandiserLayout />}>
