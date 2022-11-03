@@ -1,19 +1,25 @@
-import { FaUserAlt } from "react-icons/fa";
+import Sidebar from "./Sidebar";
 
-const MerchandiserCard = ({ name, location }) => {
+function Card(props) {
   return (
-    <div className="card bg-primary mb-5 cardTitle">
-      <div className="card-body d-flex">
-        <span style={{ fontSize: "3rem", color: "white", marginRight:"30px" }}>
-          <FaUserAlt />
-        </span>
-        <div className="d-flex flex-column">
-          <h2 style={{color:"#fff"}}>Name: {name}</h2>
-          <h4>Location: {location}</h4>
-        </div>
-      </div>
-    </div>
-  );
-};
+    <div className="container-1">
+    <section id="sectionCard">
+    <div className="carder">
+    <div className="card" >
+  
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Name: {props.engineer.email}</li>
+    <li class="list-group-item">Phone Number: {props.engineer.phone_number}</li>
+    <li class="list-group-item">ID: {props.engineer.id}</li>
+    <li class="list-group-item">Username: {props.engineer.username}</li>
+    
+  </ul>
+</div>
 
-export default MerchandiserCard;
+</div>
+</section>
+</div>
+  );
+}
+
+export default Card;

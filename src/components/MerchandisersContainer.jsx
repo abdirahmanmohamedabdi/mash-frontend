@@ -1,32 +1,30 @@
 import React, { useState, useEffect } from "react";
 
-import MerchandiserCard from "./MerchandiserCard";
+import Card from "./MerchandiserCard";
 
 
 function MerchandisersContainer(){
-    const[merchandisers, setMerchandisers] = useState([]);
+  const apiUrl = "http://localhost:3000/merchandisers";
+  let [merchandisers, setMerchandisers] = useState([]);
+
+ 
 
   useEffect(() => {
-    fetch("/merchandisers")
-    .then((r) => r.json())
-    .then(setMerchandisers);
-  }, []); 
+    fetch(apiUrl)
+      .then((res) => res.json())
+        // .then(data => console.log(data))
+       .then((res) => setMerchandisers(res));
+  },[]);
+    
+  const arrMerchandiser = merchandisers.map((eng, idx) => (
+    <Card key={idx} engineer={eng}></Card>
+  ));
+  
 
-    const merchandiserCards = merchandisers.map((merchandiser) => (
-        <MerchandiserCard
-        key={merchandiser.id}
-        merchandiser={merchandiser}
-        />
-    ));
+    
+  return <div id="engArray">{arrMerchandiser}</div>
 
-    return <div style={stylingContainer}>{merchandiserCards}</div>
-}
 
-var stylingContainer = {
-    padding: "2px 16px",
-    width: "stretch",
-    height: "auto",
-    background: ""
 }
 
 export default MerchandisersContainer;
