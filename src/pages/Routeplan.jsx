@@ -2,7 +2,10 @@ import React, {useState} from 'react'
 import Calendar from 'react-calendar'; 
 import { FaCalendarAlt } from "react-icons/fa";
 import Form from "react-bootstrap/Form";
-import "../App.css"
+import "../calender.css"
+import Routes from "./Routes"
+import CalenderEvent from './CalenderEvent';
+
 
 function Routeplan() {
 
@@ -63,7 +66,7 @@ function Routeplan() {
 
 
   return (
-    <div >
+    <div  style={styles.all}>
 
      <Form style={styles.form} onSubmit={handleSubmit} >
     
@@ -86,10 +89,10 @@ function Routeplan() {
 
        
 
-       <div  class="col-8">
+       <div  className="col-8">
             <label for="floatingInput">Route Name</label>
             <input  
-                class="form-control" 
+                className="form-control" 
                 id="floatingInput" 
                 type="text" 
                 placeholder="Route name" 
@@ -100,10 +103,10 @@ function Routeplan() {
         </div>
 
 
-        <div  class="col-8">
+        <div  className="col-8">
             <label for="floatingInput">Merchandiser</label>
             <input 
-              class="form-control" 
+              className="form-control" 
                 id="floatingInput" 
                  type="text" 
                 placeholder="merchandiser" 
@@ -114,11 +117,11 @@ function Routeplan() {
 
         </div>
 
-        <div class="col-8">
+        <div className="col-8">
 
             <label for="floatingInput">Outlets</label>
             <input 
-                class="form-control" 
+                className="form-control" 
                 id="floatingInput" 
                 type="text" 
                 placeholder="outlets" 
@@ -127,10 +130,10 @@ function Routeplan() {
 
              />
        </div>
-          <div class="col-8">
+          <div className="col-8">
             <label for="floatingInput">location</label>
             <input 
-               class="form-control" 
+               className="form-control" 
                 id="floatingInput" 
                 type="text" 
                 placeholder="location" 
@@ -140,11 +143,11 @@ function Routeplan() {
              />
           </div>
 
-          <div class="col-8">
+          <div className="col-8">
 
             <label for="floatingInput">Time</label>
             <input 
-                class="form-control" 
+                className="form-control" 
                 id="floatingInput" 
                  type="text" 
                 placeholder="time" 
@@ -156,9 +159,12 @@ function Routeplan() {
 
 
         <button style={styles.button } class="btn btn-outline-info"> Send Route Plan </button>
+
       </Form>
 
-    
+      {/* <CalenderEvent /> */}
+      {/* <Events /> */}
+      {/* <Routes /> */}
     </div>
      
   )
@@ -167,12 +173,7 @@ function Routeplan() {
 
 const styles = {
   all: {
-    display: "flex",
-    flexDirection: "row",
-    margin: "100px",
-    padding: "50px ",
-    justifycontent: "space between",
-    color: "black"
+    height: "100vh"
   },
   h3: {
     padding: "20px", 

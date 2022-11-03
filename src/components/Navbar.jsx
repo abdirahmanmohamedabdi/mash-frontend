@@ -8,9 +8,9 @@ import { AuthContext } from "./AuthProvider";
 function Navigation() {
   const { token, onLogout } = React.useContext(AuthContext);
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar className="color-nav" >
       <Container>
-        <Navbar.Brand href="/">Mash-Industries</Navbar.Brand>
+        <Navbar.Brand href="/">Mash-<span className="tagline">Industries</span></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto"></Nav>
@@ -19,7 +19,7 @@ function Navigation() {
              
             {!token && <Nav.Link href="/login">Log In {token}</Nav.Link>}
             {token && (
-              <button type="button" onClick={onLogout}>
+              <button className="signout"type="button" onClick={onLogout}>
                 Sign out
               </button>
             )}

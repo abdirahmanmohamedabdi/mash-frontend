@@ -1,5 +1,6 @@
 import React from 'react'
 import MerchandisersContainer from '../components/MerchandisersContainer';
+import { Container, Row, Col } from 'reactstrap';
 import { AuthContext } from '../components/AuthProvider';
 
 
@@ -8,28 +9,28 @@ export const Home = () => {
   return (
     <div>
       {/* {token} */}
-      <header style={{ paddingLeft: 0 }}>
-      <div
-        className=''
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1624026676760-53603406ac94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80')", backgroundSize: 'cover', position: 'relative', backgroundRepeat: 'no-repeat' }}
-      >
+      <section className="section position-relative">
+      <Container>
+        <Row className="align-items-center">
+          <Col lg={6}>
+            <div className="pr-lg-5">
        
-          <div className='d-flex justify-content-center align-items-center h-100'>
-          <div className="random">
-  
-    <h1 className="display-6">Mash-Industries</h1>
-    <p className="lead">Mash industries Ltd is a company manufacturing Fast-Moving Consumer Goods (FMCG)  such as Soap, Cooking Oil, etc. The company sales’ department has hundreds of salespeople named merchandisers reporting about their product insights to the HQ on a daily basis.
-</p>
-  
-
-          </div>
-        </div>
-      </div>
-    </header>
+              <h1 className="mb-4 font-weight-normal line-height-1_4">High Performance <span className="tagline">High Superiority</span></h1>
+              <p className="text-muted mb-4 pb-2">Mash industries Ltd is a company manufacturing Fast-Moving Consumer Goods (FMCG)  such as Soap, Cooking Oil, etc</p>
+              
+            </div>
+          </Col>
+          <Col lg={6}>
+            <div className="mt-5 mt-lg-0">
+              <img src="https://images.unsplash.com/photo-1547895749-888a559fc2a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80" alt="" className="img"/>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </section>
       
-
+</div>
 
     
-    </div>
-  )
-}
+    
+  )}
