@@ -11,7 +11,7 @@ export const Home = () => {
       <header style={{ paddingLeft: 0 }}>
       <div
         className=''
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1624026676760-53603406ac94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80')", height: 700 }}
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1624026676760-53603406ac94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80')", backgroundSize: 'cover', position: 'relative', backgroundRepeat: 'no-repeat' }}
       >
        
           <div className='d-flex justify-content-center align-items-center h-100'>

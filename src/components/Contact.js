@@ -19,6 +19,7 @@ function Contact() {
   
   return (
     <StyledContactForm>
+      <h2 className="--text-center">Contact Us</h2>
       <form ref={form} onSubmit={sendEmail}>
       <label>Name</label>
       <input type="text" name="user_name" />
@@ -36,6 +37,7 @@ export default Contact
 
 const StyledContactForm = styled.div`
 width: 400px;
+
 
 form {
     display: flex;
