@@ -15,6 +15,7 @@
     "bootstrap": "^5.2.2",
     "cdbreact": "^1.5.3",
     "cors": "^2.8.5",
+    "date-fns": "^2.29.3",
     "dotenv": "^16.0.3",
     "gapi-script": "^1.2.0",
     "google-maps-react": "^2.0.6",

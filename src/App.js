@@ -18,7 +18,6 @@ import Dashboard from "./pages/Dashboard"
 import Outlet from "./pages/Outlet";
 import Sidebar from "./components/Sidebar";
 import "./App.css";
-import { Routes, Route,Navigate } from "react-router-dom";
 import Manager from "./pages/Manager";
 import Merchants from "./pages/Merchants";
 import Events from "./pages/Events";
