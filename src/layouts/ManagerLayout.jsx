@@ -31,10 +31,26 @@ export const ManagerLayout = () => {
                     </li>
                     <li>
                         <a href="/manager/locations" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
-                            <i className="fs-4 bi-speedometer2"></i> <span className="ms-1 d-none d-sm-inline">Locations</span> </a>
+                            <i className="fs-4 bi-speedometer2"></i> <span className="ms-1 d-none d-sm-inline">Routes</span> </a>
                         <ul className="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                            
                         </ul>
+                    </li>
+                    <li>
+                    <li>
+                        <a href="/manager/outlets" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
+                            <i className="fs-4 bi-speedometer2"></i> <span className="ms-1 d-none d-sm-inline">Outlets</span> </a>
+                       
+                    </li>
+                    <li>
+                        <a href="/manager/calendar" data-bs-toggle="collapse" className="nav-link px-0 align-middle">
+                            <i className="fs-4 bi-speedometer2"></i> <span className="ms-1 d-none d-sm-inline" > Calendar</span> </a>
+                        <ul className="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                           
+                        </ul>
+                    </li>
+                    
+                        
                     </li>
                    
                 </ul>

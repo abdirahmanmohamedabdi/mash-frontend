@@ -1,6 +1,5 @@
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 
 const Merchants = ({ column }) => {
@@ -17,6 +16,28 @@ const Merchants = ({ column }) => {
       method: "DELETE",
     });
   }
+
+  function onUpdateMerchant(onUpdateMerchant){
+    const onUpdateMerchant = merchants.map(
+      merchants=>{
+        if (merchants.id===onUpdateMerchant.id){
+        return onUpdateMerchant
+        }
+        else {return merchants}
+    
+      }
+    )
+    setMerchants(onUpdateMerchant)
+    
+    return(
+      <div>
+    <EditMerchandiser
+    merchants={merchants}
+    onUpdateMerchant={onUpdateMerchant}
+    />
+      </div>
+    );
+     }
 
 
   const imageStyle ={
@@ -54,10 +75,13 @@ borderRadius:"50%"
               <td>{merchant.email}</td>
               <td>{merchant.location}</td>
               <td>
-                <Button  classN="btn btn-primary">Edit</Button>
+                <Button  className="btn btn-primary" onClick={} >Edit</Button>
               </td>
               <td>
-                <Button onClick={() => handleDelete(merchant.id)} classN="btn btn-danger"> Remove</Button>
+                <Button onClick={() => {
+                    captureE(customer);
+                    changeEditState(customer)
+                  }}> handleDelete(merchant.id)} classN="btn btn-danger"> Remove</Button>
               </td>
             </tr>
           ))}

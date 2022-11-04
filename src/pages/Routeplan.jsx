@@ -1,10 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import Calendar from 'react-calendar'; 
 import { FaCalendarAlt } from "react-icons/fa";
 import Form from "react-bootstrap/Form";
+import { Button } from "react-bootstrap"
 import "../calender.css"
-import Routes from "./Routes"
-import CalenderEvent from './CalenderEvent';
 
 
 function Routeplan() {
@@ -15,24 +14,24 @@ function Routeplan() {
   const [location, setlocation] = useState("");
   const [time, setTime] = useState("");
   const [show, setShow] = useState(false)
+  const [routes, setRoutes] = useState([])
   const current = new Date();
   const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
   const [dates, setDate] = useState(new Date())
 
-  // const checkValidInputs = (route_name, merchandiser, outlets, location, time) => {
-  //   //ensure no empty values submited to the db
-  //   if (route_name !== "" && merchandiser !== "" && outlets !== "" && location !== "" && time !== "") {
-  //     console.log("All inputs available");
-  //     return true;
-  //   }
-  // };
+
+  useEffect(() => {
+    fetch("http://localhost:3000/route_plans")
+      .then((response) => response.json())
+      .then((routes) => setRoutes(routes));
+  }, []);
 
   
 
   function handleSubmit(e) {
       e.preventDefault();
 
-      const Route = {
+      const Routeplan = {
         route_name: route_name,
         merchandiser: merchandiser,
         outlets: outlets,
@@ -50,7 +49,6 @@ function Routeplan() {
       })
       .then(res => res.json())
       .then(data => console.log(data))
-      .catch(err => console.log(err))
       
       setRoute_name("");
       setMerchandiser("");
@@ -58,13 +56,33 @@ function Routeplan() {
       setlocation("");
       setTime("");
     }
-  //   else {
-  //     alert('Check form inputs')
-  //   }
-  // }
+
+    function handleDelete(id) {
+      fetch(`http://127.0.0.1:3000/route_plans/${id}`, {
+        method: "DELETE",
+      });
+    }
+
+    function handleUpdate(id){
+      fetch(`http://127.0.0.1:3000/route_plans/${id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+         route_name: routes.route_name,
+          merchandiser: routes.merchandiser,
+          outlets: routes.outlets,
+          location: routes.location,
+          time: routes.time 
+        }),
+      })
+        .then((res) => res.json())
+        .then((result) => setRoutes(result))
+    }
+
+      
     
-
-
   return (
     <div  style={styles.all}>
 
@@ -162,13 +180,51 @@ function Routeplan() {
 
       </Form>
 
-      {/* <CalenderEvent /> */}
-      {/* <Events /> */}
-      <Routes />
+      <table
+        className="table table-striped border1"
+        style={{
+          fontSize: "1rem",
+          width:"1300px",
+          marginLeft: "80px",
+          marginTop: "20px",
+          backgroundColor: "rgb(247, 236, 222)",
+        }}
+      >
+      
+        <thead className="table-dark">
+          <tr>
+            <th>Id:</th>
+            <th>Route Name:</th>
+            <th>Merchandiser:</th>
+            <th>Outlets:</th>
+            <th>Location:</th>
+            <th>Time:</th>
+          </tr>
+        </thead>
+        <tbody>
+          {routes.map((item) => (
+            <tr key={item.id}>
+              <td>{item.id}</td>
+              <td>{item.route_name}</td>
+              <td>{item.merchandiser}</td>
+              <td>{item.outlets}</td>
+              <td>{item.location}</td>
+              <td>{item.time}</td>
+              <td>
+                <Button onClick={() => handleUpdate(item.id)} classN="btn btn-primary">Edit</Button>
+              </td>
+              <td>
+                <Button onClick={() => handleDelete(item.id)} classN="btn btn-danger"> Remove</Button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
      
   )
 }
+
 
 
 const styles = {
