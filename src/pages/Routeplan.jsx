@@ -179,7 +179,7 @@ function Routeplan() {
         <button style={styles.button } class="btn btn-outline-info"> Send Route Plan </button>
 
       </Form>
-
+<div className='styler'>
       <table
         className="table table-striped border1"
         style={{
@@ -219,7 +219,9 @@ function Routeplan() {
             </tr>
           ))}
         </tbody>
+        
       </table>
+      </div>
     </div>
      
   )

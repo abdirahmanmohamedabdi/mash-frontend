@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import Card from "./MerchandiserCard";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import googleMapStyles from "../components/googleMapStyles";
+import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
@@ -31,9 +36,21 @@ function MerchandisersContainer() {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>
-          </p>
-        </Modal.Body>
+        <Container fluid>
+                <Row>
+                  
+                  <iframe
+        width="600"
+        height="450"
+        style={{ border: 0 }}
+        loading="lazy"
+        allowfullscreen
+        src="https://www.google.com/maps/embed/v1/place?q=place_id:EhoxNOG1l8qwIERyLCBOYWlyb2JpLCBLZW55YSIuKiwKFAoSCUNJTVPjHC8YESQkhk8ukQbFEhQKEgmnSU3YchEvGBFMkpeyVALP9w&key=AIzaSyCaER0ajGWK9yiHn-W0roUE3vpTHUzyQEg"
+        
+      />
+                </Row>
+              </Container>
+        </Modal.Body> 
       </Modal>
     );
   }

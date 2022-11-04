@@ -76,7 +76,7 @@ function Location(props) {
                 <Row>
                   <Col md={4}>md=4</Col>
                   <Map
-                    // style={style}
+                  
                     google={props.google}
                     initialCenter={position}
                   >

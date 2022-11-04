@@ -1,6 +1,8 @@
 import format from "date-fns/format";
 import getDay from "date-fns/getDay";
 import parse from "date-fns/parse";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 import startOfWeek from "date-fns/startOfWeek";
 import React, { useState } from "react";
 import { Calendar, dateFnsLocalizer } from "react-big-calendar";
@@ -119,7 +121,9 @@ function Events() {
     }
 
     return (
-        <div className="App" style = {{width:"1200px",marginLeft:"100px"}}>
+        <container>
+            <Row className="align-items-center">
+        <div className="Appers" >
            
             <h2>Add New Event</h2>
             <div >
@@ -138,6 +142,8 @@ function Events() {
             style={{ height: 500, margin: "50px" }} />
 
         </div>
+        </Row>
+        </container>
     );
 }
 
