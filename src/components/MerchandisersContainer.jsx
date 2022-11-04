@@ -1,62 +1,86 @@
 import React, { useState, useEffect } from "react";
-import Table from 'react-bootstrap/Table';
+import Table from "react-bootstrap/Table";
 import Card from "./MerchandiserCard";
-import MyVerticallyCenteredModal from "./Tester"
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
-function MerchandisersContainer(){
+function MerchandisersContainer() {
   const apiUrl = "http://127.0.0.1:3000/merchandisers";
-  let [merchandisers, setMerchandisers] = useState([]);
-
- 
+  const [merchandisers, setMerchandisers] = useState([]);
+  const [modal,setModal] = useState(false)
+  const [merch,setMerch] = useState({})
 
   useEffect(() => {
     fetch(apiUrl)
-       .then((res) => res.json())
+      .then((res) => res.json())
       // .then(data => console.log(data))
       .then((res) => setMerchandisers(res));
-  },[]);
-    
-  const arrMerchandiser = merchandisers.map((eng, idx) => (
+  }, []);
+
+  function MyVerticallyCenteredModal(props) {
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+          {merch.username}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>
+          </p>
+        </Modal.Body>
+      </Modal>
+    );
+  }
+
+  const showModal = (merch) => {
+    setModal(true)
+    setMerch(merch)
+  };
+
+  const arrMerchandiser = merchandisers.map((merch, idx) => (
     <tr key={idx}>
-      <td>{eng.id}</td>
-      <td><img className="profile"src={eng.image}/> </td>
-      <td>{eng.username}</td>
-      <td>{eng.phone_number}</td>
-      <td>{eng.email}</td>
-     <td>
-     
-      https://www.google.com/maps/@-1.3212194,36.6649299,15z
-  
-      
+      <td>{merch.id}</td>
+      <td>
+        <img className="profile" src={merch.image} />{" "}
       </td>
-    
-     
-</tr>
-   
-  ));
-  
-
-    
-  return <div >  
-     <Table responsive >
-  <thead>
-    <tr>
-      <th>#
-        
-      </th>
-      <th>Picture</th>
-      <th>Username</th>
-      <th>Phone Number</th>
-      <th>Email</th>
-      <th>Location</th>
+      <td>{merch.username}</td>
+      <td>{merch.phone_number}</td>
+      <td>{merch.email}</td>
+      <td>
+        <Button onClick={() => showModal(merch)}>Show location</Button>
+      </td>
+      <td></td>
     </tr>
-  </thead>
-  <tbody>
-   {arrMerchandiser}
-  </tbody>
-</Table></div>
+  ));
 
-
+  return (
+    <div>
+      <Table responsive>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Picture</th>
+            <th>Username</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>{arrMerchandiser}</tbody>
+      </Table>
+      <MyVerticallyCenteredModal
+        show={modal}
+        merchandiser={merch}
+        onHide={() => setModal(false)}
+      />
+    </div>
+  );
 }
 
 export default MerchandisersContainer;
