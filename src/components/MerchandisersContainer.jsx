@@ -70,7 +70,7 @@ function MerchandisersContainer() {
       <td>{merch.phone_number}</td>
       <td>{merch.email}</td>
       <td>
-        <Button onClick={() => showModal(merch)}>Show location</Button>
+        <Button className="signout"onClick={() => showModal(merch)}>Show location</Button>
       </td>
       <td></td>
     </tr>
