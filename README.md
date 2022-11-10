@@ -28,7 +28,7 @@ Merchandisers should be able to see their daily route plan on a google calendar.
 ## Setting Up
 Fork and Clone this repository to create a local copy.
 
-navigate to the project directory and opent the folder.
+navigate to the project directory and cd into the folder.
 
 Run npm install  to install the front-end dependencies.
 
