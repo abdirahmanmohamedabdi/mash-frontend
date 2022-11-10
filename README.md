@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# Mash-Industries
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## Problem Statement
+Mash industries Ltd is a company manufacturing Fast-Moving Consumer Goods (FMCG)  such as Soap, Cooking Oil, etc. The company sales’ department has hundreds of salespeople named merchandisers reporting about their product insights to the HQ on a daily basis.
+Having expanded their operations countrywide as well as in some neighboring countries a year ago, the company is now struggling to monitor the movement of their salespeople on duty, to the extent that a salesperson would report about their day to day activities without any tangible proof of their whereabouts during their time on duty.
 
-### `npm start`
+## Features
+Web app.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+User authentication on both apps.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Sales managers should be able to assign merchandiser’s monthly route-plans from the Web app
 
-### `npm test`
+The Web App should display merchandisers GPS coordinates on google maps.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Merchandisers should be notified of their monthly route plan either via email.
 
-### `npm run build`
+Both apps should use a common database
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Managers should be able to edit route plans after assigning merchandisers
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Merchandisers should have the ability to switch off their GPS when they're not on duty
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Merchandisers should be able to see their daily route plan on a google calendar.
 
-### `npm run eject`
+## Setting Up
+Fork and Clone this repository to create a local copy.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+navigate to the project directory and opent the folder.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Run npm install  to install the front-end dependencies.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To run the frontend, run the command npm start which will run it on http://localhost:3000.
